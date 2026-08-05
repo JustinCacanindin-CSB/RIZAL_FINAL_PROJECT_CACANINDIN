@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>José Rizal — A Digital Exhibit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body data-theme="light">
+
+<div class="grain"></div>
+
+<nav class="book-nav" id="bookNav">
+  <a href="#hero" class="brand">José Rizal</a>
+  <div class="links">
+    <a href="#biography">Biography</a>
+    <a href="#education">Education</a>
+    <a href="#works">Works</a>
+    <a href="#travels">Exile</a>
+    <a href="#contributions">Legacy Deeds</a>
+    <a href="#legacy">Execution</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#quotes">Quotes</a>
+  </div>
+  <div class="right">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode" title="Toggle candlelight mode">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" id="themeIcon">
+        <path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/>
+      </svg>
+    </button>
+    <a class="nav-quiz" href="rizal-quiz.html">Quiz</a>
+  </div>
+</nav>
+
+<section id="hero" class="hero" style="padding:0;">
+  <div class="hero-inner">
+    <div class="hero-portrait-frame">
+      <img src="images/jose-rizal-portrait.png" alt="Portrait of José Rizal"
+           onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="hero-portrait-fallback">Add images/RizalPortrait.jpg to see his portrait here</div>
+    </div>
+    <div class="hero-content">
+      <div class="hero-eyebrow">National Hero of the Philippines · 1861–1896</div>
+      <h1 class="hero-title">José Rizal</h1>
+      <p class="hero-sub">Physician, novelist, and polyglot whose pen challenged an empire — walk through his life as though turning the pages of history itself.</p>
+      <p class="hero-quote">The youth is the hope of our future.</p>
+      <div class="hero-quote-attr">— attributed to José Rizal</div>
+      <div class="hero-cta">
+        <a class="btn btn-solid" href="#biography">Enter the Exhibit</a>
+        <a class="btn btn-line" href="rizal-quiz.html">Take the Quiz</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BIOGRAPHY ============ -->
+<section id="biography" class="reveal" data-num="I" data-side="left">
+  <div class="kicker">I. Early Life</div>
+  <h2 class="sec-title">A Boy from Calamba</h2>
+  <p class="lede">Rizal arrived on the nineteenth of June, 1861, the seventh of eleven children born to Francisco Mercado and Teodora Alonso in the quiet river town of Calamba, Laguna. His mother, educated far beyond what was expected of women of her era, taught him his letters before he could properly walk — and with them, a restlessness that no colony could contain.</p>
+  <p class="lede">He grew up between rice fields and a family library, absorbed early into a household that prized reading, discipline, and faith in equal measure. It was a childhood that looked ordinary from the outside, and rarely is.</p>
+  <div class="fact-card">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><circle cx="11" cy="11" r="2"/></svg>
+    <div>
+      <div class="fact-card-label">Did You Know?</div>
+      <p>In 1872, when Rizal was only eleven, the execution of Fathers Gomburza on charges of subversion left a lasting mark on him — his own brother Paciano had studied under Father Burgos.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EDUCATION ============ -->
+<section id="education" class="reveal" data-num="II" data-side="right">
+  <div class="kicker">II. Education</div>
+  <h2 class="sec-title">A Mind Without Borders</h2>
+  <p class="lede">He studied first at the Ateneo Municipal de Manila, then took up medicine at the University of Santo Tomas before sailing for Spain in 1882 to continue at the Universidad Central de Madrid. There, and later in Paris and Heidelberg, he specialized in ophthalmology — driven in part by his mother's failing eyesight, which he later treated himself.</p>
+  <p class="lede">Along the way he collected languages the way other men collect stamps: by the time he returned home, he moved comfortably through more than twenty of them, from Tagalog and Spanish to German, French, and Japanese.</p>
+  <div class="fact-card">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 19.5A2.5 2.5 0 016.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 014 19.5v-15A2.5 2.5 0 016.5 2z"/></svg>
+    <div>
+      <div class="fact-card-label">Did You Know?</div>
+      <p>Rizal completed his ophthalmology training partly so he could perform eye surgery on his own mother, Teodora Alonso, whose sight was failing.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ MAJOR WORKS ============ -->
+<section id="works" class="reveal" data-num="III" data-side="left">
+  <div class="kicker">III. Major Works</div>
+  <h2 class="sec-title">What He Left in Ink</h2>
+  <p class="lede">Two novels, written years and countries apart, did what no pamphlet or petition had managed — they made colonial cruelty legible to the very people living inside it.</p>
+  <div class="works-grid">
+    <div class="work-card">
+      <div class="work-year">1887 · Berlin</div>
+      <div class="work-title">Noli Me Tángere</div>
+      <div class="work-desc">Published on borrowed money and a friend's generosity, the novel painted colonial Manila so precisely that owning a copy became, briefly, its own quiet act of defiance.</div>
+    </div>
+    <div class="work-card">
+      <div class="work-year">1891 · Ghent</div>
+      <div class="work-title">El Filibusterismo</div>
+      <div class="work-desc">The darker sequel, following Noli's protagonist years later under a new identity — where reform gives way to something closer to reckoning.</div>
+    </div>
+  </div>
+  <div class="minor-works">
+    <span>La Liga Filipina · 1892</span>
+    <span>Mi Último Adiós · 1896</span>
+    <span>Essays &amp; Correspondence</span>
+  </div>
+  <div class="fact-card">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 3l18 18M10.5 10.5a3 3 0 004.24 4.24M9.88 4.24A9.94 9.94 0 0112 4c5.5 0 9 4.5 10 8-.42 1.36-1.13 2.68-2.1 3.85M6.1 6.1C4.35 7.3 3 9.05 2 12c.79 2.55 2.4 4.66 4.5 6"/></svg>
+    <div>
+      <div class="fact-card-label">Did You Know?</div>
+      <p>Both novels were banned by Spanish colonial authorities almost immediately — which, predictably, only made copies more sought after among Filipino readers.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TRAVELS & EXILE ============ -->
+<section id="travels" class="reveal" data-num="IV" data-side="right">
+  <div class="kicker">IV. Travels &amp; Exile</div>
+  <h2 class="sec-title">A World Away, and a Field Apart</h2>
+  <p class="lede">Between 1882 and 1892, Rizal crossed continents rather than borders — Spain, France, Germany, Austria-Hungary, England, and later Japan and the United States on his voyages home. Each stop added a language, a friendship, or a piece of the argument he was slowly building.</p>
+  <p class="lede">The homecoming was short-lived. Founding La Liga Filipina in 1892 earned him swift exile to Dapitan, a remote coastal town in Zamboanga, where he spent four years farming, teaching local boys, practicing medicine, and engineering a working water system by hand.</p>
+  <div class="fact-card">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M2 12h20M12 2a15 15 0 010 20M12 2a15 15 0 000 20"/></svg>
+    <div>
+      <div class="fact-card-label">Did You Know?</div>
+      <p>In Dapitan, Rizal built a functioning water supply system for the town using little more than bamboo pipes, gravity, and careful engineering — self-taught, as with much of his medicine.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ CONTRIBUTIONS ============ -->
+<section id="contributions" class="reveal" data-num="V" data-side="left">
+  <div class="kicker">V. Contributions to the Philippines</div>
+  <h2 class="sec-title">Reform Without a Rifle</h2>
+  <p class="lede">Rizal never advocated armed revolt — his instrument was reform through education and civic organization. La Liga Filipina sought to unite the archipelago and pursue change through lawful means; his writings gave the Propaganda Movement its clearest voice in Europe.</p>
+  <p class="lede">In Dapitan, that same reforming instinct turned local: a school for boys, a working clinic, agricultural experiments, and public works built by hand. He believed, above all, that an educated citizenry was the surest path to a free one.</p>
+  <div class="fact-card">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+    <div>
+      <div class="fact-card-label">Did You Know?</div>
+      <p>Though Rizal opposed armed uprising, the Katipunan later adopted him as an inspiration and symbol — his name was reportedly used as a password among some of its members.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXECUTION & LEGACY ============ -->
+<section id="legacy" class="reveal" data-num="VI" data-side="right">
+  <div class="kicker">VI. Execution &amp; Legacy</div>
+  <h2 class="sec-title">Bagumbayan, and What Remained</h2>
+  <p class="lede">Convicted of rebellion, sedition, and conspiracy in a trial widely regarded since as a miscarriage of justice, Rizal was executed by firing squad on the morning of December 30, 1896, at Bagumbayan field. He was thirty-five years old.</p>
+  <p class="lede">The field is Rizal Park today, marked by the monument where he fell. More than a century later, December 30th is observed across the Philippines as Rizal Day — a national reminder of a life spent proving that a novel could unsettle an empire more than a rifle ever did.</p>
+  <div class="fact-card">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 8v4l3 3"/><circle cx="12" cy="12" r="9"/></svg>
+    <div>
+      <div class="fact-card-label">Did You Know?</div>
+      <p>Rizal Day has been observed as a Philippine national holiday since 1898 — making it one of the country's oldest continuously commemorated public holidays.</p>
+    </div>
+  </div>
+</section>
+
+<hr class="flourish">
+
+<!-- ============ TIMELINE ============ -->
+<section id="timeline" data-num="VII" data-side="left">
+  <div class="kicker">VII. Historical Timeline</div>
+  <h2 class="sec-title">A Life, Year by Year</h2>
+</section>
+
+<div class="timeline">
+  <div class="tl-row left">
+    <div class="tl-dot"></div>
+    <div class="tl-card">
+      <div class="tl-year">19 June 1861</div>
+      <div class="tl-head">Born in Calamba</div>
+      <div class="tl-body">Seventh of eleven children of Francisco Mercado and Teodora Alonso, in a riverside town in Laguna.</div>
+    </div>
+  </div>
+  <div class="tl-row right">
+    <div class="tl-dot"></div>
+    <div class="tl-card">
+      <div class="tl-year">1872</div>
+      <div class="tl-head">The Gomburza Execution</div>
+      <div class="tl-body">The garroting of three priests on charges of subversion left an eleven-year-old Rizal with a question he'd spend his life answering.</div>
+    </div>
+  </div>
+  <div class="tl-row left">
+    <div class="tl-dot"></div>
+    <div class="tl-card">
+      <div class="tl-year">1882–1887</div>
+      <div class="tl-head">Europe &amp; Medicine</div>
+      <div class="tl-body">Studied medicine and ophthalmology in Madrid, Paris, and Heidelberg, gathering languages and material for a novel along the way.</div>
+    </div>
+  </div>
+  <div class="tl-row right">
+    <div class="tl-dot"></div>
+    <div class="tl-card">
+      <div class="tl-year">1887</div>
+      <div class="tl-head">Noli Me Tángere</div>
+      <div class="tl-body">Published in Berlin — a novel that made ordinary Filipino readers recognize their own priest, their own governor, their own grief.</div>
+    </div>
+  </div>
+  <div class="tl-row left">
+    <div class="tl-dot"></div>
+    <div class="tl-card">
+      <div class="tl-year">1892</div>
+      <div class="tl-head">La Liga Filipina &amp; Exile</div>
+      <div class="tl-body">Founded a reform league, was arrested within days, and exiled to Dapitan for four years.</div>
+    </div>
+  </div>
+  <div class="tl-row right">
+    <div class="tl-dot"></div>
+    <div class="tl-card">
+      <div class="tl-year">29 Dec 1896</div>
+      <div class="tl-head">The Last Night</div>
+      <div class="tl-body">In his cell at Fort Santiago, he wrote a farewell poem the night before his execution, hidden inside an oil lamp for his family to find.</div>
+    </div>
+  </div>
+  <div class="tl-row left">
+    <div class="tl-dot"></div>
+    <div class="tl-card">
+      <div class="tl-year">30 Dec 1896</div>
+      <div class="tl-head">Bagumbayan</div>
+      <div class="tl-body">Executed by firing squad at seven in the morning. The field is Rizal Park today, where his monument stands.</div>
+    </div>
+  </div>
+</div>
+
+<hr class="flourish">
+
+<!-- ============ QUOTE GALLERY ============ -->
+<section id="quotes" class="reveal" data-num="VIII" data-side="right">
+  <div class="kicker">VIII. Quote Gallery</div>
+  <h2 class="sec-title">Words That Outlived Him</h2>
+  <div class="quote-grid">
+    <div class="quote-card">
+      <div class="qmark">&ldquo;</div>
+      <div class="qtext">The youth is the hope of our future.</div>
+      <div class="qattr">— attributed to José Rizal</div>
+    </div>
+    <div class="quote-card">
+      <div class="qmark">&ldquo;</div>
+      <div class="qtext">There are no tyrants where there are no slaves.</div>
+      <div class="qattr">— El Filibusterismo, 1891</div>
+    </div>
+    <div class="quote-card">
+      <div class="qmark">&ldquo;</div>
+      <div class="qtext">He who does not know how to look back to where he came from will never reach his destination.</div>
+      <div class="qattr">— attributed to José Rizal</div>
+    </div>
+    <div class="quote-card">
+      <div class="qmark">&ldquo;</div>
+      <div class="qtext">Without liberty, there is no true life.</div>
+      <div class="qattr">— attributed to José Rizal</div>
+    </div>
+  </div>
+</section>
+
+<div class="reveal" style="text-align:center; padding:2vh 6vw 10vh;">
+  <a class="btn btn-solid" href="rizal-quiz.html" style="background:var(--accent-deep); color:var(--c-cream);">Test What You've Learned</a>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<footer>
+  <div class="signature">José Rizal</div>
+  <div class="signature-caption">National Hero of the Philippines · 1861–1896</div>
+  <p class="footer-refs">Historical details drawn from the National Historical Commission of the Philippines, the public-domain texts of Noli Me Tángere and El Filibusterismo, and standard biographical accounts of Rizal's life and writings.</p>
+  <div class="footer-links">
+    <a href="#hero">Home</a>
+    <a href="#timeline">Timeline</a>
+    <a href="#quotes">Quotes</a>
+    <a href="rizal-quiz.html">Take the Quiz</a>
+  </div>
+  <div class="footer-copy">Guess Rizal: Life &amp; Works &nbsp;·&nbsp; A tribute page by Justin Christian Cacanindin</div>
+</footer>
+
+<script>
+  // scroll reveal
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+  }, {threshold:0.12});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // timeline alternating slide-in
+  const tio = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
+  }, {threshold:0.25});
+  document.querySelectorAll('.tl-row').forEach(el=>tio.observe(el));
+
+  // dark mode toggle with persistence
+  const themeToggle = document.getElementById('themeToggle');
+  const themeIcon = document.getElementById('themeIcon');
+  const sunPath = 'M12 4V2M12 22v-2M4.9 4.9L3.5 3.5M20.5 20.5l-1.4-1.4M4 12H2M22 12h-2M4.9 19.1l-1.4 1.4M20.5 3.5l-1.4 1.4M12 17a5 5 0 100-10 5 5 0 000 10z';
+  const moonPath = 'M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z';
+
+  function applyTheme(theme){
+    document.body.setAttribute('data-theme', theme);
+    themeIcon.setAttribute('d', theme === 'dark' ? sunPath : moonPath);
+  }
+
+  let saved = 'light';
+  try{ saved = localStorage.getItem('rizal-theme') || 'light'; }catch(e){}
+  applyTheme(saved);
+
+  themeToggle.addEventListener('click', ()=>{
+    const next = document.body.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+    try{ localStorage.setItem('rizal-theme', next); }catch(e){}
+  });
+</script>
+
+</body>
+</html>
