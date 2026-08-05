@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Guess Rizal: Life & Works</title>
+<style>
+  :root{
+    --cream:#F7F1E4;
+    --cream-deep:#EDE2C9;
+    --maroon:#7A1F2B;
+    --maroon-deep:#5A1520;
+    --gold:#C9A227;
+    --ink:#2B1E17;
+    --display:'Georgia','Iowan Old Style','Times New Roman',serif;
+    --body:'Helvetica Neue',Arial,sans-serif;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--body);
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:24px;
+  }
+  .stage{
+    width:100%;
+    max-width:640px;
+    background:#fff;
+    border:1px solid var(--cream-deep);
+    border-radius:10px;
+  }
+  header{
+    padding:24px 28px 18px;
+    border-bottom:1px solid var(--cream-deep);
+  }
+  header h1{
+    font-family:var(--display);
+    font-size:22px;
+    margin:0;
+    font-weight:400;
+    color:var(--maroon-deep);
+  }
+  .content{padding:28px;}
+
+  .level-track{
+    display:flex;
+    gap:6px;
+    margin-bottom:18px;
+  }
+  .level-pill{
+    flex:1;
+    text-align:center;
+    padding:6px 4px;
+    font-size:11px;
+    border-radius:6px;
+    color:var(--maroon-deep);
+    background:var(--cream);
+  }
+  .level-pill.active{background:var(--maroon);color:#fff;}
+  .level-pill.done{background:var(--gold);color:var(--maroon-deep);}
+
+  .dots{display:flex;gap:6px;margin-bottom:20px;}
+  .dots i{
+    width:7px;height:7px;border-radius:50%;
+    background:var(--cream-deep);
+    display:block;
+  }
+  .dots i.done{background:var(--gold);}
+  .dots i.current{background:var(--maroon);}
+
+.scene{
+  width:100%;
+  aspect-ratio:16/9;
+  background:var(--cream);
+  border-radius:8px;
+  overflow:hidden;
+  margin-bottom:20px;
+}
+.scene img{
+  width:100%;
+  height:100%;
+  object-fit:contain;
+}
+
+  .choices{display:grid;gap:9px;margin-bottom:4px;}
+  .choice{
+    text-align:left;
+    font-family:var(--body);
+    font-size:14px;
+    padding:12px 14px;
+    background:var(--cream);
+    border:1px solid transparent;
+    border-radius:8px;
+    cursor:pointer;
+    color:var(--ink);
+  }
+  .choice:hover{background:var(--cream-deep);}
+  .choice.correct{background:rgba(201,162,39,0.3);border-color:var(--gold);font-weight:600;}
+  .choice.wrong{background:rgba(122,31,43,0.1);opacity:0.7;}
+  .choice:disabled{cursor:default;}
+
+  .feedback{
+    margin-top:16px;
+    padding:12px 14px;
+    background:var(--cream);
+    border-radius:8px;
+    font-size:13.5px;
+    line-height:1.6;
+  }
+  .feedback .verdict{
+    font-weight:700;
+    margin-bottom:4px;
+    color:var(--maroon);
+  }
+
+  .footer-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:20px;
+  }
+  .score-tag{font-size:12px;color:var(--maroon-deep);}
+
+  button.primary{
+    font-family:var(--body);
+    background:var(--maroon);
+    color:#fff;
+    border:none;
+    border-radius:8px;
+    padding:11px 22px;
+    font-size:13px;
+    cursor:pointer;
+  }
+  button.primary:hover{background:var(--maroon-deep);}
+  button.primary:disabled{opacity:0.4;cursor:default;}
+
+  .lede{font-size:14px;line-height:1.6;color:var(--ink);margin-bottom:20px;}
+
+  .level-title{font-family:var(--display);font-size:22px;margin:2px 0 8px;color:var(--maroon-deep);}
+  .end-score{font-family:var(--display);font-size:42px;margin:4px 0;color:var(--maroon-deep);}
+  .reflect p{font-size:14px;line-height:1.65;margin-top:8px;}
+</style>
+</head>
+<body>
+<div class="stage">
+  <header>
+    <h1>Guess Rizal: Life & Works <span style="font-size:14px;font-weight:400;color:#8a7a6a;">— by Justin Christian Cacanindin</span></h1>
+  </header>
+  <div class="content" id="app"></div>
+</div>
+
+<script>
+const LEVELS = [
+  {
+    name:"Early Life",
+    questions:[
+      {
+        scene:"house",
+        q:"Rizal was born in this riverside town in Laguna in 1861 — where?",
+        choices:[
+          {label:"Calamba", correct:true},
+          {label:"Dapitan", correct:false},
+          {label:"Malolos", correct:false},
+          {label:"Vigan", correct:false},
+        ],
+        fact:"Rizal was born on June 19, 1861, in Calamba, Laguna, the seventh of eleven children of Francisco Mercado and Teodora Alonso."
+      },
+      {
+        scene:"family",
+        q:"Where did Rizal fall among his eleven brothers and sisters?",
+        choices:[
+          {label:"The seventh child", correct:true},
+          {label:"The eldest child", correct:false},
+          {label:"An only child", correct:false},
+          {label:"The youngest child", correct:false},
+        ],
+        fact:"He was the seventh of eleven children — his eldest sister Saturnina was born first, and his younger sister Soledad was the last."
+      },
+      {
+        scene:"candle-book",
+        q:"His mother, Teodora Alonso, is widely credited with teaching him what — at a very young age?",
+        choices:[
+          {label:"To read and love books", correct:true},
+          {label:"To fence with a sword", correct:false},
+          {label:"To navigate by the stars", correct:false},
+          {label:"To paint portraits", correct:false},
+        ],
+        fact:"Teodora Alonso was well-educated for her time and personally taught young Rizal his letters, sparking the lifelong love of reading that shaped his later works."
+      },
+    ]
+  },
+  {
+    name:"Education & Works",
+    questions:[
+      {
+        scene:"eye-chart",
+        q:"Rizal studied medicine in Spain, specializing in which field?",
+        choices:[
+          {label:"Ophthalmology (eye medicine)", correct:true},
+          {label:"Cardiology", correct:false},
+          {label:"Dentistry", correct:false},
+          {label:"Pediatrics", correct:false},
+        ],
+        fact:"He specialized in ophthalmology partly because his mother was losing her eyesight — he later performed eye surgery on her in the Philippines."
+      },
+      {
+        scene:"quill-globe",
+        q:"Rizal wrote his first novel, Noli Me Tángere, while living where?",
+        choices:[
+          {label:"Berlin, Germany", correct:true},
+          {label:"Manila, Philippines", correct:false},
+          {label:"Tokyo, Japan", correct:false},
+          {label:"New York, USA", correct:false},
+        ],
+        fact:"Rizal completed and published Noli Me Tángere in Berlin in 1887, using savings and help from a friend, Maximo Viola, to print it."
+      },
+      {
+        scene:"two-books",
+        q:"What is the title of Rizal's sequel to Noli Me Tángere?",
+        choices:[
+          {label:"El Filibusterismo", correct:true},
+          {label:"Mi Último Adiós", correct:false},
+          {label:"Makamisa", correct:false},
+          {label:"La Solidaridad", correct:false},
+        ],
+        fact:"El Filibusterismo (1891) is the darker, more radical sequel, following Noli's protagonist years later under a new identity."
+      },
+      {
+        scene:"speech-bubbles",
+        q:"Rizal was famously a polyglot. Roughly how many languages could he use?",
+        choices:[
+          {label:"More than 20", correct:true},
+          {label:"Exactly 2", correct:false},
+          {label:"5, all Philippine languages", correct:false},
+          {label:"None besides Spanish", correct:false},
+        ],
+        fact:"Estimates vary, but Rizal is widely documented to have studied and used over twenty languages, including Tagalog, Spanish, German, French, English, and Japanese."
+      },
+    ]
+  },
+  {
+    name:"Legacy & Sacrifice",
+    questions:[
+      {
+        scene:"circle-people",
+        q:"In 1892, Rizal founded this civic organization promoting unity and reform.",
+        choices:[
+          {label:"La Liga Filipina", correct:true},
+          {label:"The Katipunan", correct:false},
+          {label:"Cofradia de San Jose", correct:false},
+          {label:"Comite de Propaganda", correct:false},
+        ],
+        fact:"La Liga Filipina aimed to unite the archipelago, promote mutual aid, and pursue reform — Rizal was arrested and exiled shortly after founding it."
+      },
+      {
+        scene:"island",
+        q:"After founding La Liga Filipina, Rizal was exiled by Spanish authorities to which remote town?",
+        choices:[
+          {label:"Dapitan, Zamboanga", correct:true},
+          {label:"Baguio", correct:false},
+          {label:"Cebu City", correct:false},
+          {label:"Palawan", correct:false},
+        ],
+        fact:"Rizal spent four years in exile in Dapitan (1892–1896), where he practiced medicine, taught, farmed, and built a water system for the town."
+      },
+      {
+        scene:"candle-paper",
+        q:"The night before his execution, Rizal wrote this farewell poem, later smuggled out to his family.",
+        choices:[
+          {label:"Mi Último Adiós", correct:true},
+          {label:"A Filipinas", correct:false},
+          {label:"Sa Aking mga Kabata", correct:false},
+          {label:"Himno al Trabajo", correct:false},
+        ],
+        fact:"Mi Último Adiós (\"My Last Farewell\") was written the night of December 29, 1896, and has since been translated into dozens of languages."
+      },
+      {
+        scene:"monument",
+        q:"Where was Rizal executed on December 30, 1896?",
+        choices:[
+          {label:"Bagumbayan (present-day Rizal Park / Luneta)", correct:true},
+          {label:"Fort Pilar, Zamboanga", correct:false},
+          {label:"Intramuros' Plaza Roma", correct:false},
+          {label:"Malacañang grounds", correct:false},
+        ],
+        fact:"Rizal was executed by firing squad at Bagumbayan field, now Rizal Park in Manila, where his monument stands today."
+      },
+    ]
+  },
+];
+
+let levelIdx = -1;
+let qIdx = 0;
+let totalScore = 0;
+let answered = false;
+
+const TOTAL_Q = LEVELS.reduce((s,l)=>s+l.questions.length,0);
+
+const IMAGES = {
+  house: "images/CalambaHouse.jpg" ,
+  family: "images/RizalsFamily.jpg",
+  "candle-book": "images/TeodoraAlonso.jpg",
+  "eye-chart": "images/Opthalmology.jpg",
+  "quill-globe": "images/BerlinRizal.jpg",
+  "two-books": "images/NoliElfili.jpg",
+  "speech-bubbles": "images/JoseRizalLanguage.jpg",
+  "circle-people": "images/RizalLaliga.jpg",
+  island: "images/DapitanExile.jpg",
+  "candle-paper": "images/images/MiUltimoAdios.jpg",
+  monument: "images/RizalMonument.jpg",
+};
+
+function render(){
+  const app = document.getElementById('app');
+
+  if(levelIdx < 0){
+    app.innerHTML = `
+      <p class="lede">${TOTAL_Q} questions across ${LEVELS.length} levels. Answer, see the fact behind it, and move on.</p>
+      <button class="primary" onclick="startGame()">Start</button>
+    `;
+    return;
+  }
+
+  if(levelIdx >= LEVELS.length){
+    app.innerHTML = `
+      <h2 class="level-title">You've reached the end</h2>
+      <div class="end-score">${totalScore} / ${TOTAL_Q}</div>
+      <div class="reflect">
+        <p>From a riverside childhood in Calamba to a farewell poem written the night before execution at Bagumbayan — that's the arc of a life spent turning ideas into resistance.</p>
+      </div>
+      <div class="footer-row">
+        <button class="primary" onclick="restart()">Play again</button>
+      </div>
+    `;
+    return;
+  }
+
+  const level = LEVELS[levelIdx];
+
+  if(qIdx >= level.questions.length){
+    app.innerHTML = `
+      <h2 class="level-title">${level.name} complete</h2>
+      <p class="lede">Score so far: ${totalScore} / ${TOTAL_Q}</p>
+      <div class="footer-row">
+        <button class="primary" onclick="nextLevel()">${levelIdx+1 < LEVELS.length ? 'Continue' : 'See final result'}</button>
+      </div>
+    `;
+    return;
+  }
+
+  const q = level.questions[qIdx];
+  answered = false;
+
+  let levelPills = LEVELS.map((l,i)=>{
+    let cls = i < levelIdx ? 'done' : (i===levelIdx ? 'active' : '');
+    return `<div class="level-pill ${cls}">Level ${i+1}</div>`;
+  }).join('');
+
+  let dotsHTML = level.questions.map((_,i)=>{
+    let cls = i < qIdx ? 'done' : (i===qIdx ? 'current' : '');
+    return `<i class="${cls}"></i>`;
+  }).join('');
+
+  app.innerHTML = `
+    <div class="level-track">${levelPills}</div>
+    <div class="dots">${dotsHTML}</div>
+    <div class="scene"><img src="${IMAGES[q.scene]}" alt="${q.q}"></div>
+    <div class="qtext">${q.q}</div>
+    <div class="choices" id="choices">
+      ${q.choices.map((c,i)=>`<button class="choice" data-i="${i}" onclick="pick(${i})">${c.label}</button>`).join('')}
+    </div>
+    <div id="feedbackSlot"></div>
+    <div class="footer-row">
+      <span class="score-tag">Score: ${totalScore} / ${TOTAL_Q}</span>
+      <button class="primary" id="nextBtn" onclick="next()" disabled>Next</button>
+    </div>
+  `;
+}
+
+function pick(i){
+  if(answered) return;
+  answered = true;
+  const level = LEVELS[levelIdx];
+  const q = level.questions[qIdx];
+  const buttons = document.querySelectorAll('#choices .choice');
+  buttons.forEach((b,bi)=>{
+    b.disabled = true;
+    if(q.choices[bi].correct) b.classList.add('correct');
+    else if(bi===i) b.classList.add('wrong');
+  });
+  const isRight = q.choices[i].correct;
+  if(isRight) totalScore++;
+  document.getElementById('feedbackSlot').innerHTML = `
+    <div class="feedback">
+      <div class="verdict">${isRight ? 'Correct' : 'Not quite'}</div>
+      <div>${q.fact}</div>
+    </div>
+  `;
+  document.getElementById('nextBtn').disabled = false;
+}
+
+function next(){ qIdx++; render(); }
+function nextLevel(){ levelIdx++; qIdx = 0; render(); }
+function startGame(){ levelIdx = 0; qIdx = 0; totalScore = 0; render(); }
+function restart(){ levelIdx = -1; qIdx = 0; totalScore = 0; render(); }
+
+render();
+</script>
+</body>
+</html>
